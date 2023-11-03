@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema1</title>
+</head>
+<style>
+  h1 {
+    text-align : center;
+  }
+  h2 {
+    text-align : center;
+  }
+</style>
+<body>
+<h1> Descriere proiect </h1>
+<h2> Casa de productie muzica</h2>
+<h3>Istrate Alexandru-Cristian 331</h3>
+
+<h3> ROLURI </h3>
+<ul>
+<li>Customer</li>
+  <li>Administrator</li>
+  <li>Owner</li>
+</ul>
+
+<h3>PAGINI</h3>
+<ul>
+<li>Login/Register </li>
+<li>Artists: Listarea artiștilor</li>
+<li>Releases: Listarea albumelor</li>
+<li>AlbumIDx: Listarea track-urilor din album</li>
+<li>Contact: Formular pentru trimitere de email </li>
+<li>(*) Admin: Operații CRUD </li>
+</ul>
+<p> (*) ---> Acces doar pentru rolurile Administrator,Owner </p>
+
+<h3>ACTIUNI (>=Customer)</h3>
+<ul>
+<li>Creare cont si autentificare în pagina Login/Register.</li>
+<li>Browsing printre artiști , albume, lista “Followed artists”</li>
+<li>Optiunea “Follow” si “Unfollow” in pagina Artists</li>
+<li>Trimitere de email prin pagina Contact</li>
+</ul>
+
+<h3>ACTIUNI (>=Administrator)</h3>
+<ul>
+<li>Operatii CRUD în pagina Admin cu privire la artiști, albume, piese</li>
+</ul>
+<h3>ACTIUNI (Owner)</h3>
+<ul>
+<li>In pagina Admin: Modificare la nivelul rolurilor -> Add/Remove Admin</li>
+<li>Export rapoarte (Nr. de utilizatori noi , Nr. Accesări site , Artiștii cu cei mai multi urmaritori )</li>
+</ul>
+
+<h3> BAZA DE DATE</h3>
+<h4> Tabele </h4>
+<ul>
+    <li> User {id(PK), username, password, email, role, register_date} </li>
+    <li>Follow{id(PK), id-user(FK), id_artist(FK)}</li>
+    <li>Artist{id(PK), name, nr_followers}</li>
+    <li>Album {id(PK), name, artist(FK)}</li>
+    <li>Track {ID(PK), name, length, album(FK)}</li>
+</ul>
+
+<h4> Asocieri </h4>
+<ul>
+<li>User 1:M Follow</li>
+<li>Artist 1:M Follow</li>
+<li>Artist 1:M Album</li>
+<li>Album 1:M Track</li>
+</ul>
+<p> Nota: Follow este tabela de JOIN dintre User si Artist (many-to-many) pentru a gestiona actiunea "Follow"</p>
+
+</body>
+</html>
